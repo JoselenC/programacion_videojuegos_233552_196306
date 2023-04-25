@@ -15,7 +15,7 @@ namespace logic
             float distY = transform.position.y - bounds.transform.position.y;
         
             var p = width*height + bounds.radius;
-            if (Mathf.Abs(distX) > p)
+            if (Mathf.Abs(distX) < p)
                 return false;
             if (Mathf.Abs(distY) > p)
                 return false;

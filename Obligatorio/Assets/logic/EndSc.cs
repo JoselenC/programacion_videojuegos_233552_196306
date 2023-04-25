@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using logic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,10 +33,12 @@ public class EndSc : MonoBehaviour
                         level = 2;
                     }
 
-                    PlayerPrefs.SetInt("Play.Level", level + 1);
+                    level += 1;
+                    PlayerPrefs.SetInt("Play.Level", level);
                     PlayerPrefs.Save();
-                    SceneManager.LoadScene(level);
+                    SceneManager.LoadScene(1);
                 }
+                
             }
             
             if (sqBounds != null && playerBounds!=null)
@@ -44,15 +47,20 @@ public class EndSc : MonoBehaviour
                 if (collideWithPlayer)
                 {
                     var level = PlayerPrefs.GetInt("Play.Level", 2);
-                    if (level >= 5)
+                    if (level >= 20)
                     {
                         level = 2;
                     }
-                    PlayerPrefs.SetInt("Play.Level", level + 1);
+
+                    level += 1;
+                    PlayerPrefs.SetInt("Play.Level", level);
                     PlayerPrefs.Save();
-                    SceneManager.LoadScene(level);
+                    SceneManager.LoadScene(1);
                 }
             }
         }
+        
+        
     }
+    
 }

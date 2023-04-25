@@ -23,12 +23,11 @@ public class SceneController : MonoBehaviour
 
     public AudioClip audioFall;
     
-    public float incrementAmount = 1;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        
         InvokeRepeating("IncrementVariable", 3f, 5f);
         var score = PlayerPrefs.GetInt("Play.Score", 1);
         this.UpdateMonedas(score);
@@ -73,7 +72,6 @@ public class SceneController : MonoBehaviour
             {
                 SceneManager.LoadScene(0);
             }
-
             if (loseGame)
             {
                 PlayerPrefs.SetInt("Play.Score", 1);
@@ -83,22 +81,19 @@ public class SceneController : MonoBehaviour
                 audio.PlayOneShot(audioFall,1f);
             }
         }
-       
         while (player != null && gamePointer<player.transform.position.y+sceneGenerationPoint)
         {
-            
             int indexBlock = Random.Range(0, blockPreFab.Length - 2);
             var score = PlayerPrefs.GetInt("Play.Score", 1);
-            if (score> 100)
+            var level = PlayerPrefs.GetInt("Play.Level", 2)-1;
+            if (score> 5*level)
             {
-                indexBlock = 7;
+                indexBlock = 8;
             }
             else if (gamePointer < 0)
             {
                 indexBlock = 0;
             }
-           
-            
             GameObject objectBlock = Instantiate(blockPreFab[indexBlock]);
             objectBlock.transform.SetParent(this.transform);
             Block block = objectBlock.GetComponent<Block>();
@@ -113,6 +108,4 @@ public class SceneController : MonoBehaviour
         scoring.totalScore = score;
         Score.text = "Score: " + scoring.totalScore.ToString();
     }
- 
-
 }
