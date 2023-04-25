@@ -1,0 +1,33 @@
+# Unity generated folders
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Ll]ibrary/
+
+# Visual Studio/Visual Studio Code generated files
+.vs/
+.vscode/
+*.sln
+*.csproj
+*.pidb
+*.userprefs
+
+# Build artifacts
+*.apk
+*.aab
+*.unitypackage
+
+# Scene and asset files
+*.unity
+*.asset
+*.mat
+*.meta
+
+# Crashlytics metadata
+com.crashlytics.*
+crashlytics-build.properties
+
+# Xcode project files
+*.pbxproj
+*.xcworkspace/
+*.xcuserstate
